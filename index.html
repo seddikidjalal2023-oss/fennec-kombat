@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>فينك كومبات | Fennec Kombat</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- الشريط العلوي: المستوى + الإحصائيات -->
+  <header class="topbar">
+    <div class="avatar-badge">
+      <div class="avatar">🦊</div>
+      <span class="lvl-pill" id="lvlPill">1 LVL</span>
+    </div>
+
+    <div class="stats-strip">
+      <div class="stat"><span class="stat-icon">🎮</span><span id="statTaps">0</span></div>
+      <div class="stat"><span class="stat-icon">🌍</span><span id="statWorld">2K</span></div>
+      <div class="stat coin-stat"><span class="stat-icon">🪙</span><span id="statCoins">0</span></div>
+    </div>
+
+    <button class="settings-btn" aria-label="الإعدادات">⚙️</button>
+  </header>
+
+  <!-- صف المهام اليومية -->
+  <section class="daily-row">
+    <button class="daily-btn" id="cipherBtn">
+      <span class="daily-icon">🔑</span>
+      <span class="daily-label">الشيفرة اليومية</span>
+      <span class="daily-time" id="cipherTimer">23:13</span>
+    </button>
+    <button class="daily-btn" id="comboBtn">
+      <span class="daily-icon">⭐</span>
+      <span class="daily-label">الكومبو اليومي</span>
+      <span class="daily-time" id="comboTimer">23:13</span>
+    </button>
+    <button class="daily-btn earn-btn" id="earnBtn">
+      <span class="daily-icon">✅</span>
+      <span class="daily-label">اربح</span>
+    </button>
+  </section>
+
+  <!-- بطاقة المشروع الحالي -->
+  <section class="project-card">
+    <div class="project-icon-wrap">
+      <img class="project-thumb" src="assets/project-thumb.svg" alt="">
+    </div>
+    <div class="project-info">
+      <div class="project-name" id="projectName">حفلة مشهورة</div>
+      <div class="project-sub">
+        <span id="projectTimer">1M 41S</span>
+        <span class="project-min">🐾 0 (الحد 120)</span>
+      </div>
+    </div>
+    <button class="change-project-btn" id="changeProjectBtn">
+      <span class="cp-avatar">🐿️</span>
+      <span>تغيير<br>المشروع</span>
+    </button>
+    <div class="project-bars">
+      <div class="bar-item">
+        <span class="bar-icon">🎟️</span><span id="bar1">25</span>
+        <div class="bar-track"><div class="bar-fill" id="bar1fill" style="width:12.5%"></div></div>
+        <span class="bar-frac" id="bar1frac">5 / 40</span>
+      </div>
+      <div class="bar-item">
+        <span class="bar-icon">🖌️</span><span id="bar2">21</span>
+        <div class="bar-track"><div class="bar-fill" id="bar2fill" style="width:10%"></div></div>
+        <span class="bar-frac" id="bar2frac">4 / 40</span>
+      </div>
+      <div class="bar-item">
+        <span class="bar-icon">🎲</span><span id="bar3">21</span>
+        <div class="bar-track"><div class="bar-fill" id="bar3fill" style="width:12.5%"></div></div>
+        <span class="bar-frac" id="bar3frac">5 / 40</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- الأيقونات الجانبية -->
+  <div class="side-icons left-icons">
+    <button class="side-icon-btn">
+      <span class="notif-dot"></span>
+      <div class="side-icon-img hmstr">🦔</div>
+      <span class="side-icon-label">HMSTR</span>
+    </button>
+    <button class="side-icon-btn">
+      <div class="side-icon-img rewards">🎁</div>
+      <span class="side-icon-label">مكافآت 0/3</span>
+    </button>
+  </div>
+
+  <div class="side-icons right-icons">
+    <button class="side-icon-btn">
+      <div class="side-icon-img surprise">🎁</div>
+      <span class="side-icon-label">مفاجأة</span>
+    </button>
+  </div>
+
+  <!-- منصة الشخصية الرئيسية -->
+  <main class="stage">
+    <div class="platform-glow"></div>
+    <div class="platform"></div>
+    <button class="character-btn" id="tapTarget" aria-label="اضغط لجمع النقود">
+      <div id="fennecChar" class="fennec-char"></div>
+    </button>
+
+    <div class="floating-flood">
+      <div class="flood-badge">
+        <div class="flood-title">تعبئة الفيضان</div>
+        <div class="flood-sub">25 حركة</div>
+      </div>
+    </div>
+
+    <div class="energy-pill">
+      <span class="energy-icon">⚡</span>
+      <span id="energyVal">1000</span>
+      <span class="energy-max">/ <span id="energyMax">1000</span></span>
+    </div>
+
+    <div class="paw-counter">
+      <span class="paw-icon">🐾</span>
+      <span id="pawCount">1 / 3000</span>
+    </div>
+  </main>
+
+  <!-- الشريط السفلي -->
+  <nav class="bottom-nav">
+    <button class="nav-item active">
+      <span class="nav-icon">⚙️</span>
+      <span>المشروع</span>
+    </button>
+    <button class="nav-item locked">
+      <span class="nav-icon">🖥️</span>
+      <span>غرفة الإدارة</span>
+      <span class="lock-badge">🔒 3 Lvl</span>
+    </button>
+    <button class="nav-item">
+      <span class="nav-icon">🛒</span>
+      <span>المتجر</span>
+    </button>
+    <button class="nav-item locked">
+      <span class="nav-icon">🔒</span>
+      <span>5 Lvl</span>
+    </button>
+  </nav>
+
+  <!-- تأثير طفو النقاط عند النقر -->
+  <div id="floatLayer"></div>
+
+  <!-- نافذة مكافأة -->
+  <div class="modal-overlay" id="rewardModal">
+    <div class="modal-box">
+      <div class="modal-emoji">🎉</div>
+      <div class="modal-title" id="rewardTitle">مبروك!</div>
+      <div class="modal-desc" id="rewardDesc">لقد حصلت على مكافأة</div>
+      <button class="modal-close" id="rewardClose">تم</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
