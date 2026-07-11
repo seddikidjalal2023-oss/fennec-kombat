@@ -1,0 +1,28 @@
+<svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="فنك يرتدي زياً جزائرياً تقليدياً">
+  <defs>
+    <linearGradient id="furGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6DBA6"/>
+      <stop offset="100%" stop-color="#E8C081"/>
+    </linearGradient>
+    <linearGradient id="robeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F0F0F0"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="100" cy="238" rx="46" ry="8" fill="#000" opacity="0.18"/>
+  <path d="M62 70 L28 6 Q24 0 32 4 L78 46 Z" fill="url(#furGrad)" stroke="#C8935A" stroke-width="2"/>
+  <path d="M66 66 L40 18 Q52 24 72 52 Z" fill="#F6C9C9" opacity="0.85"/>
+  <path d="M138 70 L172 6 Q176 0 168 4 L122 46 Z" fill="url(#furGrad)" stroke="#C8935A" stroke-width="2"/>
+  <path d="M134 66 L160 18 Q148 24 128 52 Z" fill="#F6C9C9" opacity="0.85"/>
+  <path d="M78 40 Q100 18 122 40 L120 56 Q100 46 80 56 Z" fill="#C8102E" stroke="#8f0b20" stroke-width="1.5"/>
+  <circle cx="100" cy="22" r="6" fill="#1a1a1a"/>
+  <path d="M100 22 Q112 34 108 50" stroke="#1a1a1a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="100" cy="88" rx="42" ry="38" fill="url(#furGrad)" stroke="#C8935A" stroke-width="2"/>
+  <ellipse cx="72" cy="96" rx="10" ry="7" fill="#fff" opacity="0.35"/>
+  <ellipse cx="128" cy="96" rx="10" ry="7" fill="#fff" opacity="0.35"/>
+  <ellipse cx="83" cy="82" rx="7" ry="9" fill="#231815"/>
+  <ellipse cx="117" cy="82" rx="7" ry="9" fill="#231815"/>
+  <circle cx="85.5" cy="78" r="2.2" fill="#fff"/>
+  <circle cx="119.5" cy="78" r="2.2" fill="#fff"/>
+  <path d="M94 100 Q100 106 106 100 Q102 110 100 111 Q98 110 94 100 Z" fill="#231815"/>
+  <path d="M70 104 L40 100 M70 110 L38 112 M130 104 L160 100 M130 110 L162 112" stroke="#B98A
