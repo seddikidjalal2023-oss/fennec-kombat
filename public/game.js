@@ -1,4 +1,4 @@
-// ---------- تهيئة تطبيق تيليجرام المصغر ----------
+ // ---------- تهيئة تطبيق تيليجرام المصغر ----------
 const tg = window.Telegram?.WebApp;
 if (tg) {
   tg.ready();
@@ -118,6 +118,16 @@ function flushTaps() {
     .catch(() => {});
 }
 
+function spawnRipple(x, y) {
+  const ripple = document.createElement('div');
+  ripple.className = 'tap-ripple';
+  ripple.style.left = x + 'px';
+  ripple.style.top = y + 'px';
+  ripple.style.width = ripple.style.height = '120px';
+  el.floatLayer.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 550);
+}
+
 el.tapTarget.addEventListener('click', (e) => {
   if (state.energy <= 0) return;
   const rect = el.tapTarget.getBoundingClientRect();
@@ -129,6 +139,11 @@ el.tapTarget.addEventListener('click', (e) => {
   state.totalTaps = (state.totalTaps || 0) + 1;
   renderState();
   spawnFloatNumber(x, y, state.coinsPerTap);
+  spawnRipple(x, y);
+
+  el.tapTarget.classList.remove('bounce');
+  void el.tapTarget.offsetWidth; // إعادة تشغيل الحركة
+  el.tapTarget.classList.add('bounce');
 
   if (tg?.HapticFeedback) tg.HapticFeedback.impactOccurred('light');
 
